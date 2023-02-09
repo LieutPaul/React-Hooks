@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from  'react';
+
 import './App.css';
 
-function App() {
+export const ThemeContext = React.createContext();
+
+export default function App() {
+  const [darkTheme,setDarkTheme] = React.useState(true);
+  
+  function toggleTheme(){
+    setDarkTheme((prevDarkTheme)=>{
+      return !(prevDarkTheme);
+    })
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ThemeContext.Provider value={darkTheme}>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      </ThemeContext.Provider>
     </div>
   );
 }
-
-export default App;
