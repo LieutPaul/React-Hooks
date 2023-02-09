@@ -8,9 +8,7 @@ export default function ThemeProvider({ children }){
     const [darkTheme,setDarkTheme] = React.useState(true);
   
     function toggleTheme(){
-        setDarkTheme((prevDarkTheme)=>{
-            prevDarkTheme === true ? false : true
-        })
+        darkTheme===true ? setDarkTheme(false) : setDarkTheme(true)
     }
 
     return (
@@ -23,5 +21,5 @@ export default function ThemeProvider({ children }){
 }
 
 // Context provider : All Code that requires access to a value should be within the context provider
-// value prop will be the state variable/state 
+// value prop will be the state variable/function 
 // Provider has a single prop called value which is made accessible to all functions within 
