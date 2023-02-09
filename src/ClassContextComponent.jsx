@@ -1,9 +1,10 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import { ThemeContext } from './App';
 
 export default class ClassContextComponent extends Component{
     themeStyles(dark){
         return {
+            width : "50%",
             textAlign : 'center',
             fontSize : '2rem',
             backgroundColor : dark ? '#333' : '#CCC',
@@ -27,3 +28,5 @@ export default class ClassContextComponent extends Component{
     }
 
 }
+
+// ThemeContext.Consumer can use the value passed from ThemeContext.Provider
