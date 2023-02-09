@@ -1,27 +1,14 @@
 import React from  'react';
-import ClassContextComponent from './ClassContextComponent';
+// import ClassContextComponent from './ClassContextComponent';
 import FunctionContextComponent from './FunctionContextComponent';
+import ThemeProvider from './ThemeContext';
 import './App.css';
 
-export const ThemeContext = React.createContext();
-
 export default function App() {
-  const [darkTheme,setDarkTheme] = React.useState(true);
-  
-  function toggleTheme(){
-    setDarkTheme((prevDarkTheme)=>{
-      return !(prevDarkTheme);
-    })
-  }
-  
   return (
-    <div>
-      <ThemeContext.Provider value={darkTheme}>
-        <button onClick={toggleTheme}>Toggle Theme</button>
-        <ClassContextComponent/>
-        <FunctionContextComponent/>
-      </ThemeContext.Provider>
-    </div>
+    <ThemeProvider>
+      <FunctionContextComponent/>
+    </ThemeProvider>
   );
 }
 // Context provider : All Code that requires access to a value should be within the context provider
